@@ -60,6 +60,7 @@ module.exports = Object.freeze({
         // messenger name
         name: 'matrix',
         // messenger domain
+        protocol: 'http',
         domain: 'matrix.example.org',
         // short name, before colomn, without @
         user: 'bot',

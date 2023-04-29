@@ -68,7 +68,7 @@ const getTransports = data => {
 export const getLogger = data => {
     const transports = getTransports(data);
 
-    return new winston.Logger({
+    return winston.createLogger({
         exitOnError: false,
         transports,
     });

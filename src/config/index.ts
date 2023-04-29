@@ -44,7 +44,7 @@ const composeConfig = (baseConfig: any): Config => {
 
     const messenger = {
         ...config.messenger,
-        baseUrl: `https://${config.messenger.domain}`,
+        baseUrl: `${config.messenger.protocol}://${config.messenger.domain}`,
         bots,
     };
 

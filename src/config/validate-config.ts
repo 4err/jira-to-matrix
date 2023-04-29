@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import * as fs from 'fs';
 import * as R from 'ramda';
-// import Joi from 'joi';
-const Joi = require('joi'); 
+import Joi from 'joi';
+// const Joi = require('joi'); 
 
 const int = Joi.number()
     .integer()
@@ -66,6 +66,7 @@ const schema = obj({
     messenger: obj({
         name: ['matrix', 'slack'],
         admins: array(Joi.string()),
+        protocol: string,
         domain: string,
         user: string,
         password: string,
@@ -124,7 +125,7 @@ export const validate = config => {
         abortEarly: false,
         convert: false,
     };
-    const { error } = Joi.validate(config, schema, options);
+    const { error } = schema.validate(config, options);
     if (error) {
         console.error('Config is invalid:');
         error.details.forEach(detail => {
