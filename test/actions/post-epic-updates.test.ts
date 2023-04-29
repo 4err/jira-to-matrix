@@ -6,7 +6,7 @@ import { config } from '../../src/config';
 import { cleanRedis, getChatClass, taskTracker } from '../test-utils';
 import { translate } from '../../src/locales';
 import { redis, getRedisEpicKey } from '../../src/redis-client';
-import marked from 'marked';
+import { marked } from 'marked';
 import * as chai from 'chai';
 import sinonChai from 'sinon-chai';
 import { PostEpicUpdates } from '../../src/bot/actions/post-epic-updates';

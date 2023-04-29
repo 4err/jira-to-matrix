@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../locales';
 import { BaseAction } from './base-action';
 import { ChatFasade } from '../../messengers/chat-fasade';

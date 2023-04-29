@@ -1,9 +1,9 @@
 import { ChatConfig } from '../types';
 import { Commands } from '../bot/commands';
-import { LoggerInstance } from 'winston';
+import { Logger } from 'winston';
 
 export class BaseChatApi {
-    constructor(public commands: Commands, public config: ChatConfig, public logger: LoggerInstance, public sdk: any) {}
+    constructor(public commands: Commands, public config: ChatConfig, public logger: Logger, public sdk: any) {}
 
     getAdmins(): string[] {
         return this.config.messenger.admins;

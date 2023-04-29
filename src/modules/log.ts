@@ -33,16 +33,19 @@ const getTransports = data => {
         ...baseTransport,
         filename: config.log.filePath,
         level: config.log.fileLevel,
-        json: true,
+        format: winston.format.json(),
     });
 
     const consoleTransport = new winston.transports.Console({
         ...baseTransport,
-        colorize: true,
         level: config.log.consoleLevel,
-        json: false,
-        prettyPrint: true,
         silent: Boolean(process.env.TEST_WATCH),
+        format: winston.format.combine(
+            winston.format.colorize({
+                level: true
+            }),
+            winston.format.prettyPrint(),
+        )
     });
 
     const levels = {

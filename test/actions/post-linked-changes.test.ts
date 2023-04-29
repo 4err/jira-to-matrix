@@ -1,4 +1,4 @@
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../src/locales';
 import nock from 'nock';
 import body from '../fixtures/webhooks/issue/updated/generic.json';

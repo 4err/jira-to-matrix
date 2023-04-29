@@ -9,7 +9,7 @@ import sinonChai from 'sinon-chai';
 import { Gitlab } from '../../src/task-trackers/gitlab';
 import { UploadData } from '../../src/types';
 import { translate } from '../../src/locales';
-import marked from 'marked';
+import { marked } from 'marked';
 
 const { expect } = chai;
 chai.use(sinonChai);

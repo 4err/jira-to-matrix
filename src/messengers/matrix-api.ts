@@ -6,7 +6,7 @@ import * as R from 'ramda';
 import { BaseChatApi } from './base-api';
 import { MessengerApi, RoomData, ChatConfig, CommandNames } from '../types';
 import { Commands } from '../bot/commands';
-import { LoggerInstance } from 'winston';
+import { Logger } from 'winston';
 import { NO_ROOM_PATTERN, END_NO_ROOM_PATTERN } from '../lib/consts';
 import axios from 'axios';
 
@@ -74,7 +74,7 @@ export class MatrixApi extends BaseChatApi implements MessengerApi {
     client: any;
     connection = false;
 
-    constructor(commands: Commands, config: ChatConfig, logger: LoggerInstance, sdk = matrixSdk) {
+    constructor(commands: Commands, config: ChatConfig, logger: Logger, sdk = matrixSdk) {
         super(commands, config, logger, sdk);
         this.userId = `@${this.config.user}:${this.config.messenger.domain}`;
         this.baseUrl = `https://${this.config.messenger.domain}`;

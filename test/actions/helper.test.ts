@@ -7,7 +7,7 @@
 // const statusJSON from '../fixtures/jira-api-requests/status.json'
 // const htmlToText from 'html-to-text').fromString;
 // import * as faker from 'faker';
-// import marked from 'marked';
+// import { marked } from 'marked';
 // const newLinksbody from '../fixtures/webhooks/issuelink/created.json'
 // const linksDeletedBody from '../fixtures/webhooks/issuelink/deleted.json'
 // const {

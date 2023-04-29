@@ -16,10 +16,10 @@ let sdk;
 if (config.messenger.name === 'matrix') {
     const matrixSdkLogger = getLogger('matrix-SDK');
 
-    matrixLogger.info = (...msg) => matrixSdkLogger.info(JSON.stringify(msg.join('\n')));
-    matrixLogger.log = (...msg) => matrixSdkLogger.debug(JSON.stringify(msg.join('\n')));
-    matrixLogger.warn = (...msg) => matrixSdkLogger.warn(JSON.stringify(msg.join('\n')));
-    matrixLogger.error = (...msg) => matrixSdkLogger.error(JSON.stringify(msg.join('\n')));
+    matrixLogger.logger.info = (...msg) => matrixSdkLogger.info(JSON.stringify(msg.join('\n')));
+    matrixLogger.logger.log = (...msg) => matrixSdkLogger.debug(JSON.stringify(msg.join('\n')));
+    matrixLogger.logger.warn = (...msg) => matrixSdkLogger.warn(JSON.stringify(msg.join('\n')));
+    matrixLogger.logger.error = (...msg) => matrixSdkLogger.error(JSON.stringify(msg.join('\n')));
     // matrixLogger.trace = (...msg) => matrixSdkLogger.trace(JSON.stringify(msg.join('\n')));
 
     sdk = matrixSdk;

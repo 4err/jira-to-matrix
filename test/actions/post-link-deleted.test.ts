@@ -3,7 +3,7 @@ import nock from 'nock';
 import linkDeletedHook from '../fixtures/webhooks/issuelink/deleted.json';
 import issueBody from '../fixtures/jira-api-requests/issue.json';
 import { translate } from '../../src/locales';
-import marked from 'marked';
+import { marked } from 'marked';
 import * as chai from 'chai';
 import sinonChai from 'sinon-chai';
 import { cleanRedis, getChatClass, taskTracker } from '../test-utils';

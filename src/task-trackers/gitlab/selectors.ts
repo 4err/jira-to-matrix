@@ -10,7 +10,7 @@ import {
     GitlabPushCommit,
     GitlabPipelineHook,
 } from './types';
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../locales';
 import { DescriptionFields, IssueChanges, RoomViewStateEnum } from '../../types';
 import { URL } from 'url';
@@ -529,8 +529,8 @@ const getMilestoneId = (body): number | null => runMethod(body, 'getMilestoneId'
 const getMilestoneKey = (body, milestoneId?: number): string | undefined =>
     issueRequestHandlers.getMilestoneKey(body, milestoneId);
 
-export const extractProjectNameFromIssueKey = (key: string): string => {
-    const keyData = this.selectors.transformFromIssueKey(key);
+const extractProjectNameFromIssueKey = (key: string): string => {
+    const keyData = transformFromIssueKey(key);
     return keyData.namespaceWithProject.split('/').reverse()[0];
 };
 
@@ -584,5 +584,5 @@ export const selectors: GitlabSelectors = {
     getSummary,
     getDescriptionFields,
     isIgnoreHookType,
-    extractProjectNameFromIssueKey,
+    extractProjectNameFromIssueKey
 };

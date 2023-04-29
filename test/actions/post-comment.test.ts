@@ -1,5 +1,5 @@
 import querystring from 'querystring';
-import { fromString } from 'html-to-text';
+import { convert } from 'html-to-text';
 import nock from 'nock';
 import commentCreatedHook from '../fixtures/webhooks/comment/created.json';
 import commentUpdatedHook from '../fixtures/webhooks/comment/updated.json';
@@ -63,7 +63,7 @@ describe('Post comments test', () => {
             const result = await postComment.run(postCommentData);
 
             expect(result).to.be.true;
-            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, fromString(htmlBody), htmlBody);
+            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, convert(htmlBody), htmlBody);
         });
 
         it('Expect postComment works correct with comment-updated hook', async () => {
@@ -75,7 +75,7 @@ describe('Post comments test', () => {
             const result = await postComment.run(postCommentUpdatedData);
 
             expect(result).to.be.true;
-            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, fromString(htmlBody), htmlBody);
+            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, convert(htmlBody), htmlBody);
         });
 
         it('Expect return with empty issueId. No way to handle issue', async () => {
@@ -144,7 +144,7 @@ describe('Post comments test', () => {
             const result = await postComment.run(postCommentData);
 
             expect(result).to.be.true;
-            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, fromString(htmlBody), htmlBody);
+            expect(chatSingle.sendHtmlMessage).to.be.calledWithExactly(roomId, convert(htmlBody), htmlBody);
         });
     });
 });

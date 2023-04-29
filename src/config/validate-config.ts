@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import * as fs from 'fs';
 import * as R from 'ramda';
-import * as Joi from 'joi';
+// import Joi from 'joi';
+const Joi = require('joi'); 
 
 const int = Joi.number()
     .integer()

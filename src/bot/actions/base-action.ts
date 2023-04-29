@@ -1,6 +1,6 @@
 import { createCanvas } from 'canvas';
 import { Config, TaskTracker, MessengerApi } from '../../types';
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../locales';
 import { getLogger } from '../../modules/log';
 import { ChatFasade } from '../../messengers/chat-fasade';

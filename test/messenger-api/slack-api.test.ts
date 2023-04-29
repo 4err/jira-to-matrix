@@ -1,6 +1,6 @@
 import * as faker from 'faker';
 import { WebClient } from '@slack/web-api';
-import { fromString } from 'html-to-text';
+import { convert } from 'html-to-text';
 import messages from '../fixtures/events/slack/messages.json';
 import conversationInfoJSON from '../fixtures/slack-requests/conversations/rename.json';
 import conversationRenameJSON from '../fixtures/slack-requests/conversations/rename.json';
@@ -200,7 +200,7 @@ describe('Slack api testing', () => {
             channel: messages.help.channel_id,
             attachments: [
                 {
-                    text: fromString(utils.helpPost),
+                    text: convert(utils.helpPost),
                     mrkdwn_in: ['text'],
                 },
             ],

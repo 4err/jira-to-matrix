@@ -1,4 +1,4 @@
-import marked from 'marked';
+import { marked } from 'marked';
 import querystring from 'querystring';
 import { config } from '../../src/config';
 import nock from 'nock';

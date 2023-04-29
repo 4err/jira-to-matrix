@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import marked from 'marked';
+import { marked } from 'marked';
 import * as chai from 'chai';
 import sinonChai from 'sinon-chai';
 import { translate } from '../../src/locales';

@@ -2,12 +2,12 @@
 import http from 'http';
 import Ramda from 'ramda';
 import { WebClient } from '@slack/web-api';
-import { fromString } from 'html-to-text';
+import { convert } from 'html-to-text';
 import express from 'express';
 import bodyParser, { OptionsJson } from 'body-parser';
 import { BaseChatApi } from './base-api';
 import { ChatConfig } from '../types';
-import { LoggerInstance } from 'winston';
+import { Logger } from 'winston';
 import { Commands } from '../bot/commands';
 // import { MessengerApi } from '../types';
 
@@ -17,7 +17,7 @@ export class SlackApi extends BaseChatApi {
     count = 0;
     client: any;
 
-    constructor(commands: Commands, config: ChatConfig, logger: LoggerInstance, sdk: WebClient) {
+    constructor(commands: Commands, config: ChatConfig, logger: Logger, sdk: WebClient) {
         super(commands, config, logger, sdk);
         this.sdk = sdk || new WebClient(config.password);
     }
@@ -161,7 +161,7 @@ export class SlackApi extends BaseChatApi {
      */
     async sendHtmlMessage(channel, infoMessage, textBody) {
         try {
-            const text = fromString(textBody);
+            const text = convert(textBody);
             const attachments = [
                 {
                     text,

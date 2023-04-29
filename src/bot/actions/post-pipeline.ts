@@ -34,7 +34,7 @@ export class PostPipeline extends BaseAction<ChatFasade, Gitlab> {
     }
 
     static parseCommit = (pipeInfo: GitlabPipeline) => {
-        const ymlData = toYaml.safeDump(pipeInfo, { lineWidth: -1 });
+        const ymlData = toYaml.dump(pipeInfo, { lineWidth: -1 });
 
         return ymlData;
     };

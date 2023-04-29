@@ -1,7 +1,7 @@
 import nock from 'nock';
 import * as chai from 'chai';
 import sinonChai from 'sinon-chai';
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../src/locales';
 import { getChatClass, taskTracker, cleanRedis, getRoomId } from '../test-utils';
 import jiraProject from '../fixtures/jira-api-requests/project-gens/classic/correct.json';

@@ -60,7 +60,7 @@ export class PostCommit extends BaseAction<ChatFasade, Gitlab> {
             return Object.assign(output, GitlabParser.stageFilter(filteredOutput));
         });
 
-        const ymlData = toYaml.safeDump(parseCommit, { lineWidth: -1 });
+        const ymlData = toYaml.dump(parseCommit, { lineWidth: -1 });
         return ymlData;
         // const jsonData = JSON.stringify(commitInfo, null, 2);
         // return ['<pre><code class="language-yaml"> ', ymlData, '\n</code></pre>\n'].join('');

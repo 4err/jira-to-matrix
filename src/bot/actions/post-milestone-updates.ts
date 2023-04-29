@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import marked from 'marked';
+import { marked } from 'marked';
 import { translate } from '../../locales';
 import { getLogger } from '../../modules/log';
 import { redis, getRedisMilestoneKey } from '../../redis-client';

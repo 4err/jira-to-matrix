@@ -1,5 +1,5 @@
-import { fromString } from 'html-to-text';
-import marked from 'marked';
+import { convert } from 'html-to-text';
+import { marked } from 'marked';
 import { getLogger } from '../../modules/log';
 import { translate } from '../../locales';
 import { infoBody } from '../../lib/messages';
@@ -66,7 +66,7 @@ export class CreateRoom extends BaseAction<ChatFasade, TaskTracker> {
     getDescription(descriptionFields: DescriptionFields): { body: string; htmlBody: string } {
         try {
             const htmlBody = this.getPost(descriptionFields);
-            const body = fromString(htmlBody);
+            const body = convert(htmlBody);
 
             return { body, htmlBody };
         } catch (err) {
