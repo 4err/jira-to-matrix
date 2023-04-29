@@ -1,4 +1,4 @@
-import { setupCache } from 'axios-cache-adapter';
+import { setupCache } from 'axios-cache-interceptor';
 import { Projects } from '@gitbeaker/node';
 import * as R from 'ramda';
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
@@ -124,11 +124,8 @@ export class Gitlab implements TaskTracker {
         this.selectors = selectors;
         this.parser = new GitlabParser(options.features, selectors);
         this.defaultLabel = options.defaultLabel;
-        const cache = setupCache({
-            maxAge: 5 * 1000,
-        });
-        this.api = axios.create({
-            adapter: cache.adapter,
+        this.api = setupCache(axios, {
+            ttl: 5 * 1000
         });
     }
 
