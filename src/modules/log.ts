@@ -41,9 +41,9 @@ const getTransports = data => {
         level: config.log.consoleLevel,
         silent: Boolean(process.env.TEST_WATCH),
         format: winston.format.combine(
-            winston.format.colorize({
-                level: true
-            }),
+            // winston.format.colorize({
+            //     level: true
+            // }),
             winston.format.prettyPrint(),
         )
     });

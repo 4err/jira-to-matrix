@@ -77,7 +77,7 @@ export class MatrixApi extends BaseChatApi implements MessengerApi {
     constructor(commands: Commands, config: ChatConfig, logger: Logger, sdk = matrixSdk) {
         super(commands, config, logger, sdk);
         this.userId = `@${this.config.user}:${this.config.messenger.domain}`;
-        this.baseUrl = `https://${this.config.messenger.domain}`;
+        this.baseUrl = `${config.messenger.protocol}://${this.config.messenger.domain}`;
     }
 
     getRoomLink(idOrAlias: string) {
@@ -346,8 +346,13 @@ export class MatrixApi extends BaseChatApi implements MessengerApi {
 
     async _createClient(): Promise<void> {
         try {
-            const client = this.sdk.createClient(this.baseUrl);
+            console.log('test')
+            const client = this.sdk.createClient({
+                baseUrl: this.baseUrl
+            });
+            console.log(client);
             const { access_token: accessToken } = await client.loginWithPassword(this.userId, this.config.password);
+            this.logger.info(`get Access_token OK BaseUrl: ${this.baseUrl}, userId: ${this.userId}`);
             const matrixClient = this.sdk.createClient({
                 baseUrl: this.baseUrl,
                 accessToken,

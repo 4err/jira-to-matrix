@@ -53,6 +53,7 @@ export interface Config {
     messenger: {
         admins: string[];
         name: 'matrix' | 'slack';
+        protocol: string;
         domain: string;
         user: string;
         password: string;
